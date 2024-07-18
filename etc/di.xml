@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Armada\ProductImport\Api\Data\ProductImportInterface" type="Armada\ProductImport\Model\Import\ProductInfo" />
+
+    <preference for="Armada\ProductImport\Model\Report\ReportProcessorInterface" type="Armada\ProductImport\Model\Report\Csv" />
+
+    <virtualType name="ImportLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="error" xsi:type="object">Armada\ProductImport\Logger\Handler\ErrorHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Armada\ProductImport\Model\ProductUpdate">
+        <arguments>
+            <argument name="logger" xsi:type="object">ImportLogger</argument>
+        </arguments>
+    </type>
+    <type name="Armada\ProductImport\Model\Import">
+        <arguments>
+            <argument name="logger" xsi:type="object">ImportLogger</argument>
+        </arguments>
+    </type>
+    <type name="Armada\ProductImport\Cron\ImportProductData">
+        <arguments>
+            <argument name="logger" xsi:type="object">ImportLogger</argument>
+        </arguments>
+    </type>
+    <type name="Armada\ProductImport\Cron\CleanImportLog">
+        <arguments>
+            <argument name="logger" xsi:type="object">ImportLogger</argument>
+        </arguments>
+    </type>
+    <type name="Armada\ProductImport\Model\Import\Consumer">
+        <arguments>
+            <argument name="logger" xsi:type="object">ImportLogger</argument>
+        </arguments>
+    </type>
+    <type name="Armada\ProductImport\Model\Import\UpdateProduct">
+        <arguments>
+            <argument name="logger" xsi:type="object">ImportLogger</argument>
+        </arguments>
+    </type>
+
+</config>

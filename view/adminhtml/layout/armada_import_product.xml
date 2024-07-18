@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Armada_ProductImport::css/productimport.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Armada\ProductImport\Block\Adminhtml\Import\Edit\Before" template="Armada_ProductImport::import/form/before.phtml" name="import.form.before" as="form_before"/>
+            <block class="Armada\ProductImport\Block\Adminhtml\Import\Edit" name="import.form.container"/>
+            <block class="Armada\ProductImport\Block\Adminhtml\Form\After" template="Armada_ProductImport::import/form/after.phtml" name="import.form.after" as="form_after"/>
+
+            <uiComponent name="product_import_grid"/>
+        </referenceContainer>
+    </body>
+</page>

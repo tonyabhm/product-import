@@ -1,0 +1,57 @@
+{
+    "armada_product_import": {
+        "column": {
+            "import_id": true,
+            "user_id": true,
+            "imported_file": true,
+            "started_at": true,
+            "execution_time": true,
+            "summary": true,
+            "error_file": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "armada_product_import_history": {
+        "column": {
+            "history_id": true,
+            "user_id": true,
+            "status": true,
+            "imported_file": true,
+            "started_at": true,
+            "execution_time": true,
+            "summary": true,
+            "error_file": true,
+            "total_rows": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "armada_product_import_log": {
+        "column": {
+            "log_id": true,
+            "history_id": true,
+            "status": true,
+            "old_value": true,
+            "new_value": true,
+            "sku": true,
+            "message": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "ARMADA_PRODUCT_IMPORT_LOG_HISTORY_ID": true,
+            "ARMADA_PRODUCT_IMPORT_LOG_SKU": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_7F9A228852CBAFEEF3B2C956FF1919A7": true
+        }
+    }
+}

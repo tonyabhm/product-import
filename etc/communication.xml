@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="productimport.import" request="Armada\ProductImport\Api\Data\ProductImportInterface">
+        <handler name="productimport.import" type="Armada\ProductImport\Model\Import\Consumer" method="process" />
+    </topic>
+</config>

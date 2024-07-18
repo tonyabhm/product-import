@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="armada">
+        <job name="armada_product_import" instance="Armada\ProductImport\Cron\ImportProductData"
+             method="execute">
+            <schedule>* * * * *</schedule>
+            <config_path>armada_import/product/cronTime</config_path>
+        </job>
+        <job name="armada_product_import_clean" instance="Armada\ProductImport\Cron\CleanImportLog" method="execute">
+          <config_path>armada_import/log/cleanCronTime</config_path>
+      </job>
+    </group>
+</config>

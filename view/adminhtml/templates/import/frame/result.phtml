@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+?>
+<?php $scriptString = <<<script
+
+//<![CDATA[
+    top.varienImport.postToFrameComplete({$block->getResponseJson()});
+//]]>
+
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="armada_product_import_history" resource="default" engine="innodb" comment="Armada Product Import table">
+        <column xsi:type="int" name="history_id" unsigned="true" nullable="false" identity="true"
+                comment="Import record ID"/>
+        <column xsi:type="int" name="user_id" unsigned="true" nullable="false" identity="false" default="0"
+                comment="User ID"/>
+        <column name="status" nullable="false" xsi:type="smallint" comment="Status" identity="false" default="0"/>
+        <column xsi:type="varchar" name="imported_file" nullable="true" length="255" comment="Imported file"/>
+        <column xsi:type="timestamp" name="started_at" on_update="false" nullable="true" comment="Started at"/>
+        <column xsi:type="varchar" name="execution_time" nullable="true" length="255" comment="Execution time"/>
+        <column xsi:type="varchar" name="summary" nullable="true" length="255" comment="Summary"/>
+        <column xsi:type="varchar" name="error_file" nullable="false" length="255" comment="Imported file with errors"/>
+        <column xsi:type="int" name="total_rows" unsigned="true" nullable="false" 
+                comment="Total Rows"/>
+        <column name="created_at" on_update="false" nullable="false" xsi:type="timestamp" comment="created_at" default="CURRENT_TIMESTAMP"/>
+        <column name="updated_at" on_update="true" xsi:type="timestamp" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="history_id"/>
+        </constraint>
+    </table>
+
+    <table name="armada_product_import_log" resource="default" engine="innodb" comment="Armada Product Import log table">
+        <column xsi:type="int" name="log_id" unsigned="true" nullable="false" identity="true"
+                comment="Import log ID"/>
+        <column xsi:type="int" name="history_id" unsigned="true" nullable="false" comment="Import History ID"/>
+        <column name="status" nullable="false" xsi:type="smallint" comment="Status" default="0"/>
+        <column xsi:type="text" name="old_value" nullable="true" comment="Old Value"/>
+        <column xsi:type="text" name="new_value" nullable="true" comment="New Value"/>
+        <column xsi:type="varchar" name="sku" nullable="true" length="255" comment="SKU"/>
+        <column xsi:type="varchar" name="message" nullable="true" length="255" comment="Message"/>
+        <column name="created_at" on_update="false" nullable="false" xsi:type="timestamp" comment="created_at" default="CURRENT_TIMESTAMP"/>
+        <column name="updated_at" on_update="true" xsi:type="timestamp" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="log_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ARMADA_PRODUCT_IMPORT_LOG_HISTORY_ID_ARMADA_PRODUCT_IMPORT_HISTORY_HISTORY_ID"
+                    table="armada_import_log" column="history_id" referenceTable="armada_product_import_history"
+                    referenceColumn="history_id" onDelete="CASCADE"/>
+        <index referenceId="ARMADA_IMPORT_LOG_HISTORY_ID" indexType="btree">
+            <column name="history_id"/>
+        </index>
+        <index referenceId="ARMADA_IMPORT_LOG_SKU" indexType="btree">
+            <column name="sku"/>
+        </index>
+    </table>
+</schema>

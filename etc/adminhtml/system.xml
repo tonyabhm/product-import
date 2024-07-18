@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="armada" translate="label" sortOrder="10">
+            <label>Armada</label>
+        </tab>
+        <section id="armada_import" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Import</label>
+            <tab>armada</tab>
+            <resource>Armada_ProductImport::import</resource>
+            <group id="product" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Import</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="cronTime" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Import Cron Time</label>
+                </field>
+            </group>
+            <group id="log" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Import Logs</label>
+                <field id="cleanCronTime" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log Clean Cron Time</label>
+                    <comment><![CDATA[<strong>Cron job for cleaning the import logs. </strong>]]></comment>
+                </field>
+                <field id="cleanup_days" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Clean up Logs after days</label>
+                    <comment><![CDATA[<strong>Clean up Import logs after X days.</strong>]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

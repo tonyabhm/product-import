@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Armada_ProductImport::import" title="Armada Import" translate="title" sortOrder="10">
+                    <resource id="Armada_ProductImport::import_product" title="Product Import" translate="title" sortOrder="10" />
+                    <resource id="Armada_ProductImport::import_log" title="Product Import Log" translate="title" sortOrder="20" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

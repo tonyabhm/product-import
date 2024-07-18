@@ -1,0 +1,33 @@
+{
+    "name": "armada/module-product-import",
+    "description": "Product Import Module",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Tony Xavier",
+            "email": "tonyabhm@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "version": "1.0.4",
+    "require": {
+        "php": "~8.1.0||~8.2.0||~8.3.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Armada\\ProductImport\\": ""
+        }
+    }
+}
+

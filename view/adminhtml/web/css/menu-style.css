@@ -1,0 +1,6 @@
+.admin__menu #menu-armada-productimport-import > a:before {
+    content: url('../images/armada-menu.png');
+    height: 28px;
+    margin: 0 auto;
+    width: 30px;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Armada_ProductImport::import" title="Armada" translate="title" module="Armada_ProductImport" sortOrder="50" resource="Armada_ProductImport::menu"/>
+        <add id="Armada_ProductImport::import_product" title="Product Import" translate="title" module="Armada_ProductImport" sortOrder="10" parent="Armada_ProductImport::import" action="armada/import/product" resource="Armada_ProductImport::import"/>
+        <add id="Armada_ProductImport::import_log" title="Product Import Log" translate="title" module="Armada_ProductImport" sortOrder="20" parent="Armada_ProductImport::import" action="armada/import/log" resource="Armada_ProductImport::import"/>
+        <add id="Armada_ProductImport::import_settings" title="Settings" translate="title" module="Armada_ProductImport" sortOrder="20" parent="Armada_ProductImport::import" action="adminhtml/system_config/edit/section/armada_import" resource="Armada_ProductImport::import"/>
+    </menu>
+</config>

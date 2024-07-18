@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/queue.xsd">
+    <broker topic="productimport.import" exchange="magento">
+        <queue name="productimport.import" consumer="productimport.import" handler="Armada\ProductImport\Model\Import\Consumer::process"/>
+    </broker>
+</config>

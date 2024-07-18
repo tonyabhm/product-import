@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tony Xavier
+ * @package Armada_ProductImport
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <armada_import>
+            <product>
+                <enabled>1</enabled>
+                <cronTime>*/5 * * * *</cronTime>
+            </product>
+            <log>
+                <enabled>1</enabled>
+                <cleanCronTime>0 4 * * *</cleanCronTime>
+                <cleanup_days>10</cleanup_days>
+            </log>
+        </armada_import>
+    </default>
+</config>
